@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ponuka čajov na osobný odber – kategórie, gramáže, ceny a výber produktov.">
+    <title>Katalóg čajov | Predajňa čaju</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Predajňa čaju – základné rozloženie">
+                <img src="images/logo.svg" width="48" height="48" alt="">
+                <span>
+                    <span class="brand-name">Predajňa čaju</span>
+                    <span class="brand-tagline">Čaje na osobný odber</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Hlavná navigácia">
+                <ul class="nav-list">
+                    <li><a class="nav-item" href="katalog.html" aria-current="page">Čaje</a></li>
+                    <li><button class="nav-item" type="button">Moje objednávky</button></li>
+                </ul>
+            </nav>
+
+            <div class="account-controls">
+                <button class="button button-secondary" type="button" aria-label="Košík, 0 položiek">
+                    <img class="icon" src="images/cart.svg" width="24" height="24" alt="">
+                    <span>Košík (0)</span>
+                </button>
+                <span class="account-label">Zákazník</span>
+                <button class="button button-secondary" type="button">Odhlásiť</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="obsah" class="container" tabindex="-1">
+        <header class="page-intro">
+            <h1>Vyberte si svoj čaj</h1>
+            <p>Objednajte si čaj na osobný odber. Zaplatíte pri prevzatí.</p>
+        </header>
+
+
+        <form class="catalog-form" action="katalog.html" method="get" aria-label="Vyhľadávanie a filtrovanie čajov">
+            <label class="search-label" for="hladany-caj">Vyhľadať čaj</label>
+            <div class="search-row">
+                <div class="search-field">
+                    <img class="icon" src="images/search.svg" width="24" height="24" alt="">
+                    <input type="search" id="hladany-caj" name="q" placeholder="Hľadať čaj podľa názvu…" maxlength="100">
+                </div>
+                <button class="button" type="button">Vyhľadať</button>
+            </div>
+
+            <div class="catalog-layout">
+                <aside class="filters" aria-label="Filter podľa kategórie">
+                    <fieldset>
+                        <legend>Kategórie</legend>
+                        <div class="category-options">
+                            <label class="category-option">
+                                <input type="radio" name="kategoria" value="vsetky" checked>
+                                <span>Všetky čaje</span>
+                                <span class="category-count" aria-label="počet čajov: 6">6</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="radio" name="kategoria" value="zelene">
+                                <span>Zelené</span>
+                                <span class="category-count" aria-label="počet čajov: 2">2</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="radio" name="kategoria" value="cierne">
+                                <span>Čierne</span>
+                                <span class="category-count" aria-label="počet čajov: 1">1</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="radio" name="kategoria" value="bylinne">
+                                <span>Bylinné</span>
+                                <span class="category-count" aria-label="počet čajov: 1">1</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="radio" name="kategoria" value="ovocne">
+                                <span>Ovocné</span>
+                                <span class="category-count" aria-label="počet čajov: 1">1</span>
+                            </label>
+                            <label class="category-option">
+                                <input type="radio" name="kategoria" value="rooibos">
+                                <span>Rooibos</span>
+                                <span class="category-count" aria-label="počet čajov: 1">1</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                    <div class="filter-actions">
+                        <button class="button button-secondary" type="reset">Zrušiť filtre</button>
+                    </div>
+                </aside>
+
+                <section class="products" aria-labelledby="nadpis-produktov">
+                    <div class="results-heading">
+                        <h2 id="nadpis-produktov">Všetky čaje</h2>
+                        <p>6 produktov</p>
+                    </div>
+                    <div class="product-grid">
+                        <article class="product-card" aria-labelledby="caj-sencha">
+                            <img class="product-image" src="images/caj-placeholder.svg" width="640" height="224" alt="">
+                            <p class="product-category">Zelený čaj</p>
+                            <h3 id="caj-sencha">Sencha</h3>
+                            <p class="product-meta">Japonsko · 100 g</p>
+                            <p class="product-description">Jemná, svieža chuť</p>
+                            <div class="product-bottom">
+                                <div>
+                                    <data class="price" value="5.90">5,90&nbsp;€</data>
+                                    <button class="detail-button" type="button" aria-label="Zobraziť detail: Sencha">Zobraziť detail</button>
+                                </div>
+                                <button class="button" type="button" aria-label="Pridať do košíka: Sencha">Do košíka</button>
+                            </div>
+                        </article>
+                        <article class="product-card" aria-labelledby="caj-earl-grey">
+                            <img class="product-image" src="images/caj-placeholder.svg" width="640" height="224" alt="">
+                            <p class="product-category">Čierny čaj</p>
+                            <h3 id="caj-earl-grey">Earl Grey</h3>
+                            <p class="product-meta">Srí Lanka · 100 g</p>
+                            <p class="product-description">Príchuť: bergamot</p>
+                            <div class="product-bottom">
+                                <div>
+                                    <data class="price" value="4.80">4,80&nbsp;€</data>
+                                    <button class="detail-button" type="button" aria-label="Zobraziť detail: Earl Grey">Zobraziť detail</button>
+                                </div>
+                                <button class="button" type="button" aria-label="Pridať do košíka: Earl Grey">Do košíka</button>
+                            </div>
+                        </article>
+                        <article class="product-card" aria-labelledby="caj-rooibos">
+                            <img class="product-image" src="images/caj-placeholder.svg" width="640" height="224" alt="">
+                            <p class="product-category">Rooibos</p>
+                            <h3 id="caj-rooibos">Rooibos vanilka</h3>
+                            <p class="product-meta">Južná Afrika · 100 g</p>
+                            <p class="product-description">Príchuť: vanilka</p>
+                            <div class="product-bottom">
+                                <div>
+                                    <data class="price" value="5.20">5,20&nbsp;€</data>
+                                    <button class="detail-button" type="button" aria-label="Zobraziť detail: Rooibos vanilka">Zobraziť detail</button>
+                                </div>
+                                <button class="button" type="button" aria-label="Pridať do košíka: Rooibos vanilka">Do košíka</button>
+                            </div>
+                        </article>
+                        <article class="product-card" aria-labelledby="caj-mata">
+                            <img class="product-image" src="images/caj-placeholder.svg" width="640" height="224" alt="">
+                            <p class="product-category">Bylinný čaj</p>
+                            <h3 id="caj-mata">Mätový čaj</h3>
+                            <p class="product-meta">Slovensko · 50 g</p>
+                            <p class="product-description">Príchuť: mäta</p>
+                            <div class="product-bottom">
+                                <div>
+                                    <data class="price" value="3.50">3,50&nbsp;€</data>
+                                    <button class="detail-button" type="button" aria-label="Zobraziť detail: Mätový čaj">Zobraziť detail</button>
+                                </div>
+                                <button class="button" type="button" aria-label="Pridať do košíka: Mätový čaj">Do košíka</button>
+                            </div>
+                        </article>
+                        <article class="product-card" aria-labelledby="caj-jazmin">
+                            <img class="product-image" src="images/caj-placeholder.svg" width="640" height="224" alt="">
+                            <p class="product-category">Zelený čaj</p>
+                            <h3 id="caj-jazmin">Jazmínový čaj</h3>
+                            <p class="product-meta">Čína · 100 g</p>
+                            <p class="product-description">Príchuť: jazmín</p>
+                            <div class="product-bottom">
+                                <div>
+                                    <data class="price" value="6.50">6,50&nbsp;€</data>
+                                    <button class="detail-button" type="button" aria-label="Zobraziť detail: Jazmínový čaj">Zobraziť detail</button>
+                                </div>
+                                <button class="button" type="button" aria-label="Pridať do košíka: Jazmínový čaj">Do košíka</button>
+                            </div>
+                        </article>
+                        <article class="product-card" aria-labelledby="caj-ovocie">
+                            <img class="product-image" src="images/caj-placeholder.svg" width="640" height="224" alt="">
+                            <p class="product-category">Ovocný čaj</p>
+                            <h3 id="caj-ovocie">Lesné ovocie</h3>
+                            <p class="product-meta">Slovensko · 100 g</p>
+                            <p class="product-description">Príchute: malina, jahoda</p>
+                            <div class="product-bottom">
+                                <div>
+                                    <data class="price" value="4.90">4,90&nbsp;€</data>
+                                    <button class="detail-button" type="button" aria-label="Zobraziť detail: Lesné ovocie">Zobraziť detail</button>
+                                </div>
+                                <button class="button" type="button" aria-label="Pridať do košíka: Lesné ovocie">Do košíka</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </form>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="footer-brand" href="index.html">Predajňa čaju</a>
+            <p>Osobný odber v predajni</p>
+            <p>Platba pri prevzatí</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="224" viewBox="0 0 640 224">
+  <!-- Zástupný obrázok podľa wireframu, vytvorený s pomocou ChatGPT. -->
+  <rect width="640" height="224" fill="#f9fae7"/>
+  <path d="M0 0L640 224M640 0L0 224" stroke="#d0d9bf" stroke-width="2"/>
+  <rect x="180" y="84" width="280" height="56" fill="#f9fae7"/>
+  <text x="320" y="121" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#3f5d45">Fotografia čaju</text>
+</svg>

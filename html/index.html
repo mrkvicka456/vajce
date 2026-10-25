@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Základné responzívne rozloženie aplikácie Predajňa čaju.">
+    <title>Základné rozloženie | Predajňa čaju</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#obsah">Preskočiť na hlavný obsah</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="index.html" aria-label="Predajňa čaju – základné rozloženie">
+                <img src="images/logo.svg" width="48" height="48" alt="">
+                <span>
+                    <span class="brand-name">Predajňa čaju</span>
+                    <span class="brand-tagline">Čaje na osobný odber</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Hlavná navigácia">
+                <ul class="nav-list">
+                    <li><a class="nav-item" href="katalog.html">Čaje</a></li>
+                    <li><button class="nav-item" type="button">Moje objednávky</button></li>
+                </ul>
+            </nav>
+
+            <div class="account-controls">
+                <button class="button button-secondary" type="button" aria-label="Košík, 0 položiek">
+                    <img class="icon" src="images/cart.svg" width="24" height="24" alt="">
+                    <span>Košík (0)</span>
+                </button>
+                <span class="account-label">Zákazník</span>
+                <button class="button button-secondary" type="button">Odhlásiť</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="obsah" class="container layout-main" tabindex="-1">
+        <section class="layout-placeholder" aria-labelledby="nadpis-rozlozenia">
+            <div class="placeholder-copy">
+                <p class="eyebrow">Hlavný obsah</p>
+                <h1 id="nadpis-rozlozenia">Priestor pre vybranú stránku</h1>
+                <a class="button" href="katalog.html">Prejsť do katalógu</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <a class="footer-brand" href="index.html">Predajňa čaju</a>
+            <p>Osobný odber v predajni</p>
+            <p>Platba pri prevzatí</p>
+        </div>
+    </footer>
+</body>
+</html>

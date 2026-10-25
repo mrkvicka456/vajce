@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Jednoduchá vektorová značka vytvorená s pomocou ChatGPT. -->
+  <rect x="0.5" y="0.5" width="47" height="47" rx="4" fill="#f3f4cd" stroke="#52765a"/>
+  <path d="M14 30C11 16 24 10 35 12C36 26 27 36 17 32" fill="#cde8d1" stroke="#355e42" stroke-width="2"/>
+  <path d="M12 36L29 19M20 28L19 20M24 24L31 24" fill="none" stroke="#355e42" stroke-width="2" stroke-linecap="round"/>
+</svg>
