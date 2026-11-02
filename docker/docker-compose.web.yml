@@ -1,0 +1,9 @@
+services:
+  web:
+    image: ghcr.io/thevajko/vaii-web-server:main
+    environment:
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+    volumes:
+      - ../:/var/www/html/
+    ports:
+      - "127.0.0.1:8080:80"
