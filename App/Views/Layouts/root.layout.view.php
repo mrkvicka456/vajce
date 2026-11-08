@@ -30,6 +30,7 @@
                 <ul class="nav-list">
                     <li><a class="nav-item" href="<?= e($link->url('home.index')) ?>">Úvod</a></li>
                     <li><a class="nav-item" href="<?= e($link->url('home.katalog')) ?>">Čaje</a></li>
+                    <li><a class="nav-item" href="<?= e($link->url('tea.index')) ?>">Správa čajov</a></li>
                     <!-- Táto stránka zatiaľ nie je súčasťou zadania, preto ide o vizuálne tlačidlo. -->
                     <li><button class="nav-item" type="button">Moje objednávky</button></li>
                 </ul>

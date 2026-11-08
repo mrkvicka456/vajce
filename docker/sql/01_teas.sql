@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS teas (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(80) NOT NULL,
+    category VARCHAR(20) NOT NULL,
+    origin VARCHAR(60) NOT NULL,
+    weight SMALLINT UNSIGNED NOT NULL,
+    price DECIMAL(7, 2) NOT NULL,
+    description VARCHAR(240) NOT NULL DEFAULT '',
+    PRIMARY KEY (id),
+    CONSTRAINT ck_teas_weight CHECK (weight BETWEEN 1 AND 10000),
+    CONSTRAINT ck_teas_price CHECK (price > 0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
