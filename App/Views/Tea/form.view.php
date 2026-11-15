@@ -5,6 +5,8 @@
 /** @var array $values */
 /** @var array $errors */
 /** @var array $categories */
+/** @var \App\Models\Flavor[] $flavors */
+/** @var int[] $selectedFlavorIds */
 /** @var string $token */
 /** @var \Framework\Support\LinkGenerator $link */
 $action = $isEdit ? $link->url('tea.edit', ['id' => $tea->getId()]) : $link->url('tea.create');
@@ -61,6 +63,24 @@ $action = $isEdit ? $link->url('tea.edit', ['id' => $tea->getId()]) : $link->url
                 <textarea id="tea-description" name="description" rows="4" maxlength="240"><?= e($values['description']) ?></textarea>
             </div>
         </div>
+
+        <fieldset class="relation-picker" aria-describedby="flavor-selection-help">
+            <legend>Príchute čaju</legend>
+            <p class="field-hint" id="flavor-selection-help">Označte jednu alebo viac príchutí. Čaj môže zostať aj bez príchute.</p>
+            <?php if ($flavors === []): ?>
+                <p>Zatiaľ nie sú vytvorené príchute. Vytvoríte ich v časti <a href="<?= e($link->url('flavor.index')) ?>">Správa príchutí</a>.</p>
+            <?php else: ?>
+                <div class="relation-options">
+                    <?php foreach ($flavors as $flavor): ?>
+                        <label class="relation-option">
+                            <input type="checkbox" name="flavor_ids[]" value="<?= e($flavor->getId()) ?>"
+                                   <?= in_array($flavor->getId(), $selectedFlavorIds, true) ? 'checked' : '' ?>>
+                            <span><?= e($flavor->getName()) ?></span>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </fieldset>
 
         <div class="tea-actions">
             <button class="button" type="submit"><?= $isEdit ? 'Uložiť zmeny' : 'Pridať čaj' ?></button>

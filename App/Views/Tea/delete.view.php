@@ -11,6 +11,7 @@
     <form class="tea-form" method="post" action="<?= e($link->url('tea.delete', ['id' => $tea->getId()])) ?>">
         <input type="hidden" name="token" value="<?= e($token) ?>">
         <p>Chcete vymazať <strong><?= e($tea->getName()) ?></strong>? Čaj sa odstráni aj z katalógu.</p>
+        <p class="delete-explanation">Odstránia sa jeho priradenia k príchutiam. Príchute zostanú zachované.</p>
         <div class="tea-actions">
             <button class="button button-danger" type="submit">Vymazať čaj</button>
             <a class="button button-secondary" href="<?= e($link->url('tea.index')) ?>">Zrušiť</a>

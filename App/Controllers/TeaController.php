@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\Tea;
+use App\Models\Flavor;
+use App\Support\Selection;
 use Framework\Core\BaseController;
 use Framework\Http\HttpException;
 use Framework\Http\Request;
@@ -49,6 +51,8 @@ class TeaController extends BaseController
     {
         $this->allowFormMethods($request);
         $isEdit = $tea->getId() !== null;
+        $flavors = Flavor::getAll(orderBy: 'name ASC');
+        $selectedFlavorIds = array_map(fn(Flavor $flavor) => $flavor->getId(), $tea->getFlavors());
         $values = [
             'name' => $tea->getName(),
             'category' => $tea->getCategory(),
@@ -65,8 +69,18 @@ class TeaController extends BaseController
                 $value = $request->post($field);
                 $values[$field] = is_string($value) ? trim($value) : '';
             }
+            // Formulár posiela konce riadkov ako CRLF, textarea ich počíta ako jeden znak.
+            $values['description'] = str_replace(["\r\n", "\r"], "\n", $values['description']);
 
             $errors = $this->validate($values);
+            $selection = Selection::ids(
+                $request->post('flavor_ids'),
+                array_map(fn(Flavor $flavor) => $flavor->getId(), $flavors)
+            );
+            $selectedFlavorIds = $selection ?? [];
+            if ($selection === null) {
+                $errors[] = 'Vyberte príchute z ponuky.';
+            }
             if ($errors === []) {
                 $tea->setName($values['name']);
                 $tea->setCategory($values['category']);
@@ -74,7 +88,7 @@ class TeaController extends BaseController
                 $tea->setWeight((int) $values['weight']);
                 $tea->setPrice(str_replace(',', '.', $values['price']));
                 $tea->setDescription($values['description']);
-                $tea->save();
+                $tea->saveWithFlavors($selectedFlavorIds);
 
                 return $this->backToList($isEdit ? 'Zmeny boli uložené.' : 'Čaj bol pridaný.');
             }
@@ -86,6 +100,8 @@ class TeaController extends BaseController
             'values' => $values,
             'errors' => $errors,
             'categories' => Tea::CATEGORIES,
+            'flavors' => $flavors,
+            'selectedFlavorIds' => $selectedFlavorIds,
             'token' => $this->formToken(),
         ], 'form')->setStatusCode($errors === [] ? 200 : 422);
     }

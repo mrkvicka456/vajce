@@ -10,7 +10,7 @@
 <section class="page-catalog" aria-labelledby="katalog-title">
     <header class="page-intro">
         <h1 id="katalog-title">Vyberte si svoj čaj</h1>
-        <p>Objednajte si čaj na osobný odber. Zaplatíte pri prevzatí.</p>
+        <p>Prezrite si ponuku čajov na osobný odber.</p>
     </header>
 
     <form class="catalog-form" action="<?= e($link->url('home.katalog')) ?>" method="get" aria-label="Vyhľadávanie a filtrovanie čajov">
@@ -64,12 +64,20 @@
                                 <h3 id="caj-<?= e($tea->getId()) ?>"><?= e($tea->getName()) ?></h3>
                                 <p class="product-meta"><?= e($tea->getOrigin()) ?> · <?= e($tea->getWeight()) ?>&nbsp;g</p>
                                 <p class="product-description"><?= e($tea->getDescription()) ?></p>
+                                <?php $flavors = $tea->getFlavors(); ?>
+                                <?php if ($flavors !== []): ?>
+                                    <ul class="relation-tags product-flavors" aria-label="Príchute čaju <?= e($tea->getName()) ?>">
+                                        <?php foreach ($flavors as $flavor): ?>
+                                            <li><?= e($flavor->getName()) ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
                                 <div class="product-bottom">
                                     <div>
                                         <data class="price" value="<?= e($tea->getPrice()) ?>"><?= e($tea->getFormattedPrice()) ?>&nbsp;€</data>
-                                        <button class="detail-button" type="button" aria-label="Zobraziť detail: <?= e($tea->getName()) ?>">Zobraziť detail</button>
+                                        <button class="detail-button" type="button" disabled>Zobraziť detail</button>
                                     </div>
-                                    <button class="button" type="button" aria-label="Pridať do košíka: <?= e($tea->getName()) ?>">Do košíka</button>
+                                    <button class="button" type="button" disabled>Do košíka</button>
                                 </div>
                             </article>
                         <?php endforeach; ?>

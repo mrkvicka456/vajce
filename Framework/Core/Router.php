@@ -28,6 +28,12 @@ class Router
      */
     public function processURL(): void
     {
+        foreach (['c', 'a'] as $parameter) {
+            if (isset($_GET[$parameter]) && !is_string($_GET[$parameter])) {
+                throw self::notFound("The URL parameter {$parameter} must be a single value.");
+            }
+        }
+
         // Allow only valid PHP identifiers, so user input never gets into class/method names
         foreach (['controller' => $this->getControllerName(), 'action' => $this->getAction()] as $type => $name) {
             if (!self::isValidName($name)) {

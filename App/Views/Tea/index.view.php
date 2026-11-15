@@ -29,6 +29,17 @@
                         <?php if ($tea->getDescription() !== ''): ?>
                             <p><?= e($tea->getDescription()) ?></p>
                         <?php endif; ?>
+                        <p class="relation-heading">Príchute</p>
+                        <?php $flavors = $tea->getFlavors(); ?>
+                        <?php if ($flavors === []): ?>
+                            <p class="field-hint">Bez priradených príchutí.</p>
+                        <?php else: ?>
+                            <ul class="relation-tags">
+                                <?php foreach ($flavors as $flavor): ?>
+                                    <li><a href="<?= e($link->url('flavor.edit', ['id' => $flavor->getId()])) ?>"><?= e($flavor->getName()) ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
                     </div>
                     <dl class="tea-record-data">
                         <div><dt>Kategória</dt><dd><?= e($tea->getCategoryLabel()) ?></dd></div>

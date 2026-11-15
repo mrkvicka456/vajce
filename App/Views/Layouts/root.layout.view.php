@@ -2,6 +2,14 @@
 
 /** @var string $contentHTML */
 /** @var \Framework\Support\LinkGenerator $link */
+$navigation = [
+    'home.index' => 'Úvod',
+    'home.katalog' => 'Čaje',
+    'tea.index' => 'Správa čajov',
+    'flavor.index' => 'Správa príchutí',
+];
+$currentUrl = $link->url([]);
+$currentSectionUrl = $link->url('index');
 ?>
 <!DOCTYPE html>
 <html lang="sk">
@@ -28,21 +36,21 @@
 
             <nav class="main-nav" aria-label="Hlavná navigácia">
                 <ul class="nav-list">
-                    <li><a class="nav-item" href="<?= e($link->url('home.index')) ?>">Úvod</a></li>
-                    <li><a class="nav-item" href="<?= e($link->url('home.katalog')) ?>">Čaje</a></li>
-                    <li><a class="nav-item" href="<?= e($link->url('tea.index')) ?>">Správa čajov</a></li>
-                    <!-- Táto stránka zatiaľ nie je súčasťou zadania, preto ide o vizuálne tlačidlo. -->
-                    <li><button class="nav-item" type="button">Moje objednávky</button></li>
+                    <?php foreach ($navigation as $route => $label): ?>
+                        <?php $url = $link->url($route); ?>
+                        <?php $inSection = in_array($route, ['tea.index', 'flavor.index'], true) && $url === $currentSectionUrl; ?>
+                        <li><a class="nav-item<?= $inSection ? ' nav-section-active' : '' ?>" href="<?= e($url) ?>"<?= $url === $currentUrl ? ' aria-current="page"' : '' ?>><?= e($label) ?></a></li>
+                    <?php endforeach; ?>
+                    <li><button class="nav-item" type="button" disabled>Moje objednávky</button></li>
                 </ul>
             </nav>
 
             <div class="account-controls">
-                <button class="button button-secondary" type="button" aria-label="Košík, 0 položiek">
+                <button class="button button-secondary" type="button" disabled>
                     <img class="icon" src="<?= e($link->asset('images/cart.svg')) ?>" width="24" height="24" alt="">
-                    <span>Košík (0)</span>
+                    <span>Košík</span>
                 </button>
-                <span class="account-label">Zákazník</span>
-                <button class="button button-secondary" type="button">Odhlásiť</button>
+                <span class="account-label">Pripravujeme</span>
             </div>
         </div>
     </header>

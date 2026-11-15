@@ -98,4 +98,28 @@ class Tea extends Model
     {
         $this->description = $description;
     }
+
+    /** @return Flavor[] */
+    public function getFlavors(): array
+    {
+        if ($this->id === null) {
+            return [];
+        }
+
+        $flavors = [];
+        foreach ($this->getAllRelated(TeaFlavor::class, 'tea_id') as $relation) {
+            $flavor = $relation->getFlavor();
+            if ($flavor !== null) {
+                $flavors[] = $flavor;
+            }
+        }
+
+        return $flavors;
+    }
+
+    /** @param int[] $flavorIds */
+    public function saveWithFlavors(array $flavorIds): void
+    {
+        TeaFlavor::saveForTea($this, $flavorIds);
+    }
 }

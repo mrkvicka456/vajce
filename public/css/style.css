@@ -176,6 +176,11 @@ img {
     font-weight: 700;
 }
 
+.nav-section-active {
+    border-bottom-color: var(--primary);
+    font-weight: 700;
+}
+
 .account-controls {
     display: flex;
     align-items: center;
@@ -792,6 +797,103 @@ main {
     margin-top: 1.25rem;
 }
 
+.relation-picker {
+    min-width: 0;
+    margin: 1.5rem 0 0;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.relation-picker legend {
+    padding-inline: 0.375rem;
+    font-weight: 700;
+}
+
+.field-hint,
+.relation-option small {
+    color: var(--muted);
+    font-size: 0.875rem;
+}
+
+.relation-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-top: 1rem;
+    max-height: 24rem;
+    overflow-y: auto;
+}
+
+.relation-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    min-height: 46px;
+    padding: 0.625rem;
+    border-radius: var(--radius);
+    background: var(--input);
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+.relation-option:has(input:checked) {
+    background: var(--footer);
+}
+
+.relation-option input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin: 0.2rem 0 0;
+    accent-color: var(--primary);
+}
+
+.relation-option span {
+    min-width: 0;
+}
+
+.relation-option small {
+    display: block;
+}
+
+.relation-heading {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.relation-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    list-style: none;
+}
+
+.relation-tags li {
+    max-width: 100%;
+    padding: 0.25rem 0.625rem;
+    border-radius: var(--radius);
+    background: var(--footer);
+    font-size: 0.875rem;
+    overflow-wrap: anywhere;
+}
+
+.relation-tags a {
+    display: inline-block;
+    padding-block: 0.375rem;
+}
+
+.product-flavors {
+    margin: 0 0 1rem;
+}
+
+.delete-explanation {
+    margin-top: 0.75rem;
+}
+
 .tea-errors {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -834,6 +936,24 @@ main {
     overflow-wrap: anywhere;
 }
 
+button:disabled {
+    cursor: default;
+}
+
+.nav-item:disabled,
+.detail-button:disabled {
+    color: var(--muted);
+    border-bottom-color: transparent;
+    text-decoration: none;
+}
+
+.button:disabled,
+.account-controls .button:disabled {
+    color: var(--muted);
+    background: var(--footer);
+    border-color: var(--border);
+}
+
 @media (max-width: 1000px) {
     .tea-record {
         grid-template-columns: minmax(0, 1fr);
@@ -847,6 +967,10 @@ main {
     }
 
     .tea-form-fields {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .relation-options {
         grid-template-columns: minmax(0, 1fr);
     }
 }
